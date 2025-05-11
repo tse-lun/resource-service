@@ -8,15 +8,15 @@ import org.springframework.stereotype.Component;
 @Component
 public class JwtConfig {
 
-    @Bean
-    public JwtAuthenticationConverter jwtAuthenticationConverter() {
-        JwtGrantedAuthoritiesConverter authoritiesConverter = new JwtGrantedAuthoritiesConverter();
-        authoritiesConverter.setAuthoritiesClaimName("authorities"); // <- match your claim key
-        authoritiesConverter.setAuthorityPrefix(""); // already includes "ROLE_" from Auth Server
+  @Bean
+  public JwtAuthenticationConverter jwtAuthenticationConverter() {
+    JwtGrantedAuthoritiesConverter authoritiesConverter = new JwtGrantedAuthoritiesConverter();
+    authoritiesConverter.setAuthoritiesClaimName("authorities");
+    authoritiesConverter.setAuthorityPrefix(""); // already includes "ROLE_" from Auth Server
 
-        JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
-        converter.setJwtGrantedAuthoritiesConverter(authoritiesConverter);
-        return converter;
-    }
+    JwtAuthenticationConverter converter = new JwtAuthenticationConverter();
+    converter.setJwtGrantedAuthoritiesConverter(authoritiesConverter);
+    return converter;
+  }
 
 }
